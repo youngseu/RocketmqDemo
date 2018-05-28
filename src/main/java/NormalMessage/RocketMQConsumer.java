@@ -1,4 +1,4 @@
-/**
+package NormalMessage; /**
  * Created by yang on 18-5-16.
  */
 import com.alibaba.rocketmq.client.consumer.DefaultMQPushConsumer;
@@ -45,7 +45,7 @@ public class RocketMQConsumer {
         } catch (MQClientException e) {
             e.printStackTrace();
         }
-        System.out.println("RocketMQConsumer Started! group=" + consumer.getConsumerGroup() + " instance=" + consumer.getInstanceName()
+        System.out.println("NormalMessage.RocketMQConsumer Started! group=" + consumer.getConsumerGroup() + " instance=" + consumer.getInstanceName()
         );
     }
 

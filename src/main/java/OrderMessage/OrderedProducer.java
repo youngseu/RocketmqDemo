@@ -1,3 +1,5 @@
+package OrderMessage;
+
 import com.alibaba.rocketmq.client.producer.DefaultMQProducer;
 import com.alibaba.rocketmq.client.producer.MQProducer;
 import com.alibaba.rocketmq.client.producer.MessageQueueSelector;
@@ -20,9 +22,9 @@ public class OrderedProducer {
         //Launch the instance.
         producer.start();
 
-        String[] tags = new String[] {"TagA", "TagB", "TagC", "TagD", "TagE"};
-        for (int i = 0; i < 16; i++) {
-            int orderId = i % 8;
+        String[] tags = new String[] {"TagA", "TagB"};
+        for (int i = 0; i < 24; i++) {
+            int orderId = i % 16;
             //Create a message instance, specifying topic, tag and message body.
             Message msg = new Message("i2p", tags[i % tags.length], "KEY" + i,
                     ("Hello RocketMQ " + i).getBytes());

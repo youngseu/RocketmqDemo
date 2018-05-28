@@ -1,3 +1,4 @@
+import NormalMessage.RocketMQProducer;
 import com.alibaba.rocketmq.common.message.Message;
 
 /**

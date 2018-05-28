@@ -1,3 +1,6 @@
+import NormalMessage.RocketMQConsumer;
+import NormalMessage.RocketMQListener;
+
 /**
  * Created by yang on 18-5-16.
  */
