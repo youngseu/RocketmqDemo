@@ -14,20 +14,31 @@ import java.util.List;
 public class OrderedProducer {
     public static void main(String[] args) throws Exception {
         //Instantiate with a producer group name.
-        MQProducer producer = new DefaultMQProducer("i2p");
+        DefaultMQProducer producer = new DefaultMQProducer("i2p_producer");
+        //set nameserver
+        producer.setNamesrvAddr("localhost:9876");
         //Launch the instance.
         producer.start();
+
         String[] tags = new String[] {"TagA", "TagB", "TagC", "TagD", "TagE"};
-        for (int i = 0; i < 100; i++) {
-            int orderId = i % 10;
+        for (int i = 0; i < 16; i++) {
+            int orderId = i % 8;
             //Create a message instance, specifying topic, tag and message body.
             Message msg = new Message("i2p", tags[i % tags.length], "KEY" + i,
                     ("Hello RocketMQ " + i).getBytes());
+
             SendResult sendResult = producer.send(msg, new MessageQueueSelector() {
+                //select msg queue
                 @Override
                 public MessageQueue select(List<MessageQueue> mqs, Message msg, Object arg) {
+
+                    //arg is orderId
                     Integer id = (Integer) arg;
+
+                    //mqs is queue set
                     int index = id % mqs.size();
+
+                    //return mq
                     return mqs.get(index);
                 }
             }, orderId);

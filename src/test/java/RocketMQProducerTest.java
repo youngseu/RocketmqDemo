@@ -21,8 +21,8 @@ public class RocketMQProducerTest {
             message.setBody(("I send message to RocketMQ " + i).getBytes());
             mqProducer.send(message);
         }
-        mqProducer.shutdown();
 
+        mqProducer.shutdown();
     }
 
 }
