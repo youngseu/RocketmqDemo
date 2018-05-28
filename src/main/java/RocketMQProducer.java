@@ -49,4 +49,8 @@ public class RocketMQProducer {
             e.printStackTrace();
         }
     }
+
+    public void shutdown() {
+        sender.shutdown();
+    }
 }

@@ -8,9 +8,9 @@ public class RocketMQProducerTest {
     public static void main(String[] args) {
 
         String mqNameServer = "localhost:9876";
-        String mqTopics = "MQ-MSG-TOPICS-TEST";
+        String mqTopics = "1";
 
-        String producerMqGroupName = "PRODUCER-MQ-GROUP";
+        String producerMqGroupName = "1";
         RocketMQProducer mqProducer = new RocketMQProducer(mqNameServer, producerMqGroupName, mqTopics);
         mqProducer.init();
 
@@ -21,7 +21,7 @@ public class RocketMQProducerTest {
             message.setBody(("I send message to RocketMQ " + i).getBytes());
             mqProducer.send(message);
         }
-
+        mqProducer.shutdown();
 
     }
 

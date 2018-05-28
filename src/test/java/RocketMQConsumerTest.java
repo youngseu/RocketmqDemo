@@ -8,9 +8,9 @@ public class RocketMQConsumerTest {
 
 
         String mqNameServer = "localhost:9876";
-        String mqTopics = "MQ-MSG-TOPICS-TEST";
+        String mqTopics = "1";
 
-        String consumerMqGroupName = "CONSUMER-MQ-GROUP";
+        String consumerMqGroupName = "1";
         RocketMQListener mqListener = new RocketMQListener();
         RocketMQConsumer mqConsumer = new RocketMQConsumer(mqListener, mqNameServer, consumerMqGroupName, mqTopics);
         mqConsumer.init();
