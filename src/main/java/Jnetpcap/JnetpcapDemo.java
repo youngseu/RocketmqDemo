@@ -75,22 +75,22 @@ public class JnetpcapDemo {
                 String dstip = FormatUtils.ip(ip.destination());
                 // int srcport =
                 System.out.printf("#%d: ip.src= %s\n", packet.getFrameNumber(), srcip);
-                System.out.printf("                %s\n", dstip);
+                System.out.printf("               %s\n", dstip);
             }
             if (packet.hasHeader(tcp)) {
                 String srcport = String.valueOf(tcp.source());
                 String dstport = String.valueOf(tcp.destination());
 
-                System.out.printf("srcport:%s \n", srcport);
-                System.out.printf("dstport:%s \n", dstport);
+                System.out.printf("srcport:%s  \n", srcport);
+                System.out.printf("dstport:%s  \n", dstport);
                 System.out.println("length: " + tcp.getPayloadLength());
 
             }
             if (packet.hasHeader(udp)) {
                 String srcport = String.valueOf(udp.source());
                 String dstport = String.valueOf(udp.destination());
-                System.out.printf("srcport:%s \n", srcport);
-                System.out.printf("dstport:%s \n", dstport);
+                System.out.printf("srcport:%s  \n", srcport);
+                System.out.printf("dstport:%s  \n", dstport);
                 System.out.println("length                             : " + udp.getPayloadLength());
             }
         }
