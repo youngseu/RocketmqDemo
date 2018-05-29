@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 public class OrderedConsumer {
     public static void main(String[] args) throws Exception {
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("i2p_consumer1");
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("i2p_consumer");
 
         consumer.setNamesrvAddr("localhost:9876");
 

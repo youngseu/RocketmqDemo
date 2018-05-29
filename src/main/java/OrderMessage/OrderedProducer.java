@@ -23,7 +23,7 @@ public class OrderedProducer {
         producer.start();
 
         String[] tags = new String[] {"TagA", "TagB"};
-        for (int i = 0; i < 24; i++) {
+        for (int i = 0; i < 10000; i++) {
             int orderId = i % 16;
             //Create a message instance, specifying topic, tag and message body.
             Message msg = new Message("i2p", tags[i % tags.length], "KEY" + i,
