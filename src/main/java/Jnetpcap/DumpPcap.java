@@ -102,7 +102,7 @@ public class DumpPcap {
                     srcip = FormatUtils.ip(ip.source());
                     dstip = FormatUtils.ip(ip.destination());
                 }
-                if (packet.hasHeader(tcp)) {
+                if (packet.hasHeader(tcp) && srcip != null && dstip != null) {
                     System.out.println("tcp");
                     srcport = String.valueOf(tcp.source());
                     dstport = String.valueOf(tcp.destination());
