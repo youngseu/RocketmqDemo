@@ -9,14 +9,14 @@ public class I2PPackageHandler implements Runnable{
     private ConcurrentHashMap<Integer,I2PStream> map;
 
     //i2p classifier
-    private I2PClassifier i2PClassifier;
+    private I2PClassifier i2pClassifier;
 
     //package info
     private byte[] package_info;
 
     public I2PPackageHandler(ConcurrentHashMap<Integer, I2PStream> map, I2PClassifier i2PClassifier, byte[] package_info) {
         this.map = map;
-        this.i2PClassifier = i2PClassifier;
+        this.i2pClassifier = i2PClassifier;
         this.package_info = package_info;
     }
 
@@ -26,12 +26,11 @@ public class I2PPackageHandler implements Runnable{
         I2PPackage pack = new I2PPackage(info[0], info[1], info[2], info[3], Integer.parseInt(info[4]));
         int pack_id = Integer.parseInt(info[4]);
         if (!map.containsKey(pack_id)) {
-            I2PStream i2pStream = new I2PStream();
+            I2PStream i2pStream = new I2PStream(i2pClassifier);
             i2pStream.getConcurrentLinkedQueue().add(pack);
             map.put(pack_id, i2pStream);
         }else {
-            int num = map.get(pack_id).addAndIncrease(pack);
-
+            map.get(pack_id).addAndIncrease(pack);
         }
     }
 }

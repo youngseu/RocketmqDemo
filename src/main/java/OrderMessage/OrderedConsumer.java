@@ -32,7 +32,7 @@ public class OrderedConsumer {
                                                        ConsumeOrderlyContext context) {
                 context.setAutoCommit(true);
                 System.out.println(Thread.currentThread().getName() + " Receive New Messages: " + msgs + " ,content: " +
-                        new String(msgs.get(0).getBody()) + "%n");
+                        new String(msgs.get(0).getBody()));
 //                this.consumeTimes.incrementAndGet();
 //                if ((this.consumeTimes.get() % 2) == 0) {
 //                    return ConsumeOrderlyStatus.SUCCESS;

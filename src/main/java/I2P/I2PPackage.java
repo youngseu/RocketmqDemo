@@ -55,4 +55,9 @@ public class I2PPackage {
     public void setPackagelen(int packagelen) {
         this.packagelen = packagelen;
     }
+
+    @Override
+    public String toString() {
+        return srcip + "," + srcport + "," + dstip + "," + dstport + "," + packagelen;
+    }
 }

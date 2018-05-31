@@ -9,8 +9,5 @@
         <module name="rocketmqdemo" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="rocketmqdemo" target="1.6" />
-    </bytecodeTargetLevel>
   </component>
 </project>

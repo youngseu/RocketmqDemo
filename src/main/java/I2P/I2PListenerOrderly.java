@@ -17,12 +17,12 @@ public class I2PListenerOrderly implements MessageListenerOrderly {
     private ConcurrentHashMap<Integer,I2PStream> map;
 
     //i2p classifier
-    private I2PClassifier i2PClassifier;
+    private I2PClassifier i2pClassifier;
 
     public I2PListenerOrderly(ExecutorService executorService, ConcurrentHashMap<Integer, I2PStream> map) {
         this.executorService = executorService;
         this.map = map;
-        this.i2PClassifier = new I2PClassifier();
+        this.i2pClassifier = new I2PClassifier();
     }
 
     @Override
@@ -30,7 +30,7 @@ public class I2PListenerOrderly implements MessageListenerOrderly {
         context.setAutoCommit(true);
         for (MessageExt msg : msgs) {
             //apply task
-            executorService.execute(new I2PPackageHandler(map,i2PClassifier,msg.getBody()));
+            executorService.execute(new I2PPackageHandler(map, i2pClassifier,msg.getBody()));
         }
         return ConsumeOrderlyStatus.SUCCESS;
     }
@@ -51,11 +51,11 @@ public class I2PListenerOrderly implements MessageListenerOrderly {
         this.map = map;
     }
 
-    public I2PClassifier getI2PClassifier() {
-        return i2PClassifier;
+    public I2PClassifier getI2pClassifier() {
+        return i2pClassifier;
     }
 
-    public void setI2PClassifier(I2PClassifier i2PClassifier) {
-        this.i2PClassifier = i2PClassifier;
+    public void setI2pClassifier(I2PClassifier i2pClassifier) {
+        this.i2pClassifier = i2pClassifier;
     }
 }
