@@ -24,7 +24,7 @@ public class I2PPackageHandler implements Runnable{
     public void run() {
         String[] info = new String(package_info).split(",");
         I2PPackage pack = new I2PPackage(info[0], info[1], info[2], info[3], Integer.parseInt(info[4]));
-        int pack_id = Integer.parseInt(info[4]);
+        int pack_id = Integer.parseInt(info[5]);
         if (!map.containsKey(pack_id)) {
             I2PStream i2pStream = new I2PStream(i2pClassifier);
             i2pStream.getConcurrentLinkedQueue().add(pack);

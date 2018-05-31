@@ -41,16 +41,16 @@ public class I2PClassifier {
             e.printStackTrace();
         }
 
-        this.attributes.add(new Attribute("avg_payload_len"));
-        this.attributes.add(new Attribute("max_payload_len"));
-        this.attributes.add(new Attribute("fragment_ratio"));
-        this.attributes.add(new Attribute("entopy_len"));
-        this.attributes.add(new Attribute("variance"));
-        this.attributes.add(new Attribute("seq_exist"));
+        this.attributes.add(new Attribute("avg_payload_len",0));
+        this.attributes.add(new Attribute("max_payload_len",1));
+        this.attributes.add(new Attribute("fragment_ratio",2));
+        this.attributes.add(new Attribute("entopy_len",3));
+        this.attributes.add(new Attribute("variance",4));
+        this.attributes.add(new Attribute("seq_exist",5));
         ArrayList<String> judge = new ArrayList<String>(2);
         judge.add("yes");
         judge.add("no");
-        this.attributes.add(new Attribute("isI2P", judge));
+        this.attributes.add(new Attribute("isI2P", judge,6));
     }
 
     public Classifier getClassifier() {
@@ -72,7 +72,7 @@ public class I2PClassifier {
 
         // fragment_ratio
         double fragment_ratio = 0;
-        double load_packet_num = 0;
+        double load_packet_num = 1;
 
         // entopy_len
         double entopy_len = 0;
