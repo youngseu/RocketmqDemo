@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 //save an I2P stream
 public class I2PStream {
     //compare to judge_window_size
-    private AtomicInteger update_time;
+    private AtomicInteger update_time = new AtomicInteger();
 
     //classifier
     private I2PClassifier i2pClassifier;
@@ -45,6 +45,7 @@ public class I2PStream {
                 update_time.set(0);
                 if (i2pClassifier.classifier(concurrentLinkedQueue)) {
                     System.out.println(i2pPackage);
+                    System.out.println();
                 }
             }
         }
